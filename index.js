@@ -13,18 +13,8 @@ app.use(function(req, res, next) {
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 app.use(bodyParser.json({type: 'application/vnd.api+json'}));
-
 app.get('/api/article', articleRoute);
 
-ArticleModel.forge({
-	title: 'simpleTitle' + (Math.random() * 1000),
-	description: 'simpleDescription',
-	password_digest: '123'
-}, {
-    hasTimestamps: true
-}).save();
-
-
 app.listen(3030, function() {
-	console.log('Start listen port 3030.')
+	console.log('Start listen port 3030')
 });
